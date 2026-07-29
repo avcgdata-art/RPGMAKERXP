@@ -1,0 +1,48 @@
+def pbMassChangeGraphics
+  #Change max map here
+  MAX_MAP = 999
+  name = [["trchar000","0.Red"],    # ["old_file","new file"]
+          ["trchar004","0.Green"],
+          ["trchar005","0.Green"],
+          ["trchar059","0.Brock"],
+          ["trchar058","0.Giovanni"],
+          ["trchar062","0.Erika"],
+  ]
+  
+  for i in (1..MAX_MAP)
+    filename = sprintf("Data/Map%03d.rxdata", i)
+    next unless FileTest.exist?(filename)
+    
+    # Load Map
+    map = load_data(filename)
+    changed = false
+    
+    # Loop check every event in that map
+    for event_id in map.events.keys
+      event = map.events[event_id]
+      next if !event
+      
+      # Loop check every page in that event
+      for page in event.pages
+        # check if they are your target
+        name.each do |n|
+          if page.graphic.character_name == n[0]
+            page.graphic.character_name = n[1]
+            changed = true
+          end
+        end
+      end
+    end
+
+    # save file if their anychange. 
+    if changed
+      save_data(map, filename)
+      echo("Edit Map_ID: #{i} Successfully\n")
+    end
+  end
+  echo("All Map Edited Successfully!")
+end
+
+#Place this code above main or make it to plug-in
+#Make NPC and Call script "pbMassChangeGraphics"
+#Hello Brute Force World
