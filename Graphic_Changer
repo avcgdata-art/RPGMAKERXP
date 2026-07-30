@@ -1,15 +1,18 @@
 def pbMassChangeGraphics
   #Change max map here
-  MAX_MAP = 999
-  name = [["trchar000","0.Red"],    # ["old_file","new file"]
-          ["trchar004","0.Green"],
-          ["trchar005","0.Green"],
-          ["trchar059","0.Brock"],
-          ["trchar058","0.Giovanni"],
-          ["trchar062","0.Erika"],
+  max_map = 999
+  name = [["trainer_LEADER_CrasherWake","3.CrasherWake"],    # ["old_file","new file"]
+          ["trainer_LEADER_Falkner","1.Falkner"],
+          ["trainer_LEADER_Fantina","3.Fantina"],
+          ["trainer_LEADER_Flannery","2.Flannery"],
+          ["trainer_LEADER_Gardenia","3.Gardenia"],
+          ["trainer_LEADER_Jasmine","1.Jasmine"],
+          ["trainer_LEADER_Juan","2.Juan"],
+          ["trainer_LEADER_Clair","1.Clair"],
+          ["trainer_ELITEFOUR_Koga","0.Koga"],
   ]
   
-  for i in (1..MAX_MAP)
+  for i in (1..max_map)
     filename = sprintf("Data/Map%03d.rxdata", i)
     next unless FileTest.exist?(filename)
     
