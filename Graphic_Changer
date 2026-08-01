@@ -46,6 +46,7 @@ def pbMassChangeGraphics
   echo("All Map Edited Successfully!")
 end
 
+# BACK UP YOUR PROJECT FIRST!
 #Place this code above main or make it to plug-in
 #Make NPC and Call script "pbMassChangeGraphics"
 #Hello Brute Force World
